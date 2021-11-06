@@ -3,43 +3,31 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>BRUH. BANK S.A. | WEŹ KREDYT</title>
+	<title>BRUH. BANK S.A. | SPŁAĆ RATĘ</title>
 	<link rel="stylesheet" type="text/css" href="../styles/style.css">
 	<link rel="icon" href="../logo_icons/bank_logo.png">
 </head>
 <body>
 	<form>
 	<header>
-		<a href="../PHP/main.php">BRUH. BANK S.A. | WEŹ KREDYT</a>
-		<input type="submit" value="WEŹ KREDYT">
+		<a href="../PHP/main.php">BRUH. BANK S.A. | SPŁAĆ RATĘ</a>
+		<input type="submit" value="SPŁAĆ">
 	</header>
 	<article id="article6">
 		<div id="send_money">
-			WEŹ KREDYT | DANE DO KREDYTU
+			SPŁAĆ RATE
 			<hr class="hr">
-				<label for="first_name">IMIĘ: </label><br>
-				<input type="text" name="first_name" required><br>
+				<label for="money">KWOTA POŻYCZKI: </label><br>
+				<input type="text" name="money" value="" readonly><br>
 
-				<label for="second_name">DRUGIE IMIĘ: </label><br>
-				<input type="text" name="second_name" required><br>
+				<label for="left">POZOSTAŁO DO SPŁATY: </label><br>
+				<input type="text" name="left" value="" readonly>
 
-				<label for="surname">NAZWISKO: </label><br>
-				<input type="text" name="surname" required>
+                <label for="instalment">POZOSTAŁO [MIESIĘCY]: </label><br>
+				<input type="text" name="instalment" value="" readonly><br>
 
-				<label for="address">ADRES: </label><br>
-				<input type="text" name="address" required>
-
-				<label for="goal">CEL KREDYTU: </label><br>
-				<input type="text" name="goal" required>
-
-				<label for="amount">KWOTA KREDYTU: </label><br>
-				<input type="number" name="amount" required>
-
-                <label for="how_long">DŁUGOŚĆ SPŁATY KREDYTU [ILE MIESIĘCY]: </label><br>
-				<input type="number" name="amount" required>
-
-                <label for="your_instalment">TWOJA MIESIĘCZNA RATA WYNOSI: </label><br>
-                <input type="text" name="your_instalment" value="" readonly>
+				<label for="pay_instalment">SPŁAĆ RATĘ: </label><br>
+				<input type="number" name="pay_instalment" value="" readonly>
 		</div>
 	</form>
 	</article>
