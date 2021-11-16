@@ -7,4 +7,8 @@
 
 	HtmlGenerator::ReadHTML($filePath);
 
+	session_start();
+
+	echo $_SESSION['userID'];
+
 ?>

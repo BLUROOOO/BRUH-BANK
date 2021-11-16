@@ -27,6 +27,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 			echo '<script type="text/javascript">';
 			echo 'alert("Wprowadź poprawne dane.")';
 			echo '</script>';
+			$result->free_result();
 		}
 		else
 		{
@@ -35,6 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 				session_start();
 				$_SESSION['userID'] = $row['user_id'];
 				echo $_SESSION['userID'];
+				$result->free_result();
 				header("location: main.php");
     			exit;
 
