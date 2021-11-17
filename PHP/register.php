@@ -42,21 +42,48 @@
 			$sqlv3 = "SELECT id FROM `users` WHERE mail='$email'";
 			$resultv1 = $conn->query($sqlv1);
 			$resultv2 = $conn->query($sqlv2);
+			$resultv3 = $conn->query($sqlv3);
 			echo "<br> resultv1: ".$resultv1->num_rows;
 			echo "<br> resultv2: ".$resultv2->num_rows;
+			echo "<br> resultv3: ".$resultv3->num_rows;
 
 			echo "<br> email: $email";
+			echo "<br> Account: $account_type";
 
 			if($resultv1->num_rows != 0)
 			{
 				echo '<script type="text/javascript">';
-				echo 'alert("Podany użytkownik już istnieje!")';  //not showing an alert box.
+				echo 'alert("Podany użytkownik już istnieje!")';
 				echo '</script>';
 			}
 			else if($resultv2->num_rows != 0)
 			{
 				echo '<script type="text/javascript">';
-				echo 'alert("Wprowadzony login jest zajęty!")';  //not showing an alert box.
+				echo 'alert("Wprowadzony login jest zajęty!")';
+				echo '</script>';
+			}
+			else if($resultv3->num_rows != 0)
+			{
+				echo '<script type="text/javascript">';
+				echo 'alert("Konto o podanym emailu już istnieje")';
+				echo '</script>';
+			}
+			else if($password != $confirm_password)
+			{
+				echo '<script type="text/javascript">';
+				echo 'alert("Hasła muszą być takie same!")';
+				echo '</script>';
+			}
+			else if(strlen($pesel) != 11)
+			{
+				echo '<script type="text/javascript">';
+				echo 'alert("Nieprawidłowy pesel!")';
+				echo '</script>';
+			}
+			else if(strlen($postCode) != 5)
+			{
+				echo '<script type="text/javascript">';
+				echo 'alert("Nieprawidółowy kod pocztowy")';
 				echo '</script>';
 			}
 			else
@@ -73,6 +100,11 @@
 				
 				$sql2 = "INSERT INTO `accounts_data` (`user_ID`, `login`, `password`) VALUES ('$user_ID', '$login', '$hashedPassword')";
 				$conn->query($sql2);
+
+				$sql3 = "INSERT INTO `account_type` (`user`, `type`) VALUES ('$user_ID', '$account_type')";
+				$conn->query($sql3);
+
+				$conn->close();
 				header("location: post_register.php");
     			exit;
 			}
