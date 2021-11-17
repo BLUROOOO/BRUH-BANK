@@ -6,5 +6,10 @@
     $filePath = "..//HTML//$fileName.html";
 
     HtmlGenerator::ReadHTML($filePath);
+    echo "bruh";
 
+    
+    
+    echo "</body>
+    </html>";
 ?>
