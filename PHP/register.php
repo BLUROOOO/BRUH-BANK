@@ -7,8 +7,6 @@
 
 	HtmlGenerator::ReadHTML($filePath);
 
-	
-
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		
@@ -30,6 +28,7 @@
 			$city = $_POST['city'];
 			$street = $_POST['street'];
 			$user_ID = 0;
+			$account_number = str_pad(rand(0, pow(10, 18)-1), 18, '0', STR_PAD_LEFT).str_pad(rand(0, pow(10, 8)-1), 8, '0', STR_PAD_LEFT);
 
 			$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -103,6 +102,9 @@
 
 				$sql3 = "INSERT INTO `account_type` (`user`, `type`) VALUES ('$user_ID', '$account_type')";
 				$conn->query($sql3);
+
+				$sql4 = "INSERT INTO `wallet` (`wallet_ID`, `user`, `wallet`, `number`) VALUES ('$user_ID', '0', '0', '$account_number');";
+				$conn->query($sql4);
 
 				$conn->close();
 				header("location: post_register.php");
