@@ -31,6 +31,8 @@
 			$street = $_POST['street'];
 			$user_ID = 0;
 
+			$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
 			require 'Config//db_login_data.php';
 
 			$conn = mysqli_connect($hostname, $user, $passwd, $dbName);
@@ -69,7 +71,7 @@
 					$user_ID = $rec['id'];
 				}
 				
-				$sql2 = "INSERT INTO `accounts_data` (`user_ID`, `login`, `password`) VALUES ('$user_ID', '$login', '$password')";
+				$sql2 = "INSERT INTO `accounts_data` (`user_ID`, `login`, `password`) VALUES ('$user_ID', '$login', '$hashedPassword')";
 				$conn->query($sql2);
 				header("location: post_register.php");
     			exit;
