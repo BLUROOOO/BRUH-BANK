@@ -82,7 +82,7 @@
 			else if(strlen($postCode) != 5)
 			{
 				echo '<script type="text/javascript">';
-				echo 'alert("Nieprawidółowy kod pocztowy")';
+				echo 'alert("Nieprawidłowy kod pocztowy")';
 				echo '</script>';
 			}
 			else

@@ -5,6 +5,7 @@ $fileName = str_replace(".php", "", $fileName);
 $filePath = "..//HTML//$fileName.html";
 
 HtmlGenerator::ReadHTML($filePath);
+$sessionExpire = 15;
 
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -44,7 +45,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 				{
 				session_start();
 				$_SESSION['userID'] = $row['user_id'];
-				echo $_SESSION['userID'];
+				$_SESSION['start'] = time();
+            
+           		$_SESSION['expire'] = $_SESSION['start'] + ($sessionExpire * 60);
+				
 				$result->free_result();
 				header("location: main.php");
     			exit;

@@ -9,6 +9,8 @@
 
 	session_start();
 
-	echo $_SESSION['userID'];
+	
+	session_unset();
+	session_destroy();
 
 ?>

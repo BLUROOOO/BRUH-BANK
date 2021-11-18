@@ -8,7 +8,7 @@
 	<link rel="icon" href="../logo_icons/bank_logo.png">
 </head>
 <body>
-	<form>
+	<form method="post" action="">
 	<header>
 		<a href="../PHP/main.php">BRUH. BANK S.A. | WYŚLIJ PRZELEW</a>
 		<input type="submit" value="WYŚLIJ">
@@ -27,14 +27,14 @@
 				<label for="surname">NAZWISKO: </label><br>
 				<input type="text" name="surname" required>
 
-				<label for="address">ADRES: </label><br>
-				<input type="text" name="address" required>
-
 				<label for="title">TYTUŁ PRZELEWU: </label><br>
 				<input type="text" name="title" required>
 
 				<label for="account_number">NR KONTA ODBIORCY: </label><br>
 				<input type="number" name="account_number" required>
+
+				<label for="money">KWOTA PRZELEWU: </label><br>
+				<input type="number" name="money" required>
 		</div>
 	</form>
 	</article>
@@ -52,5 +52,3 @@
 		<a href="https://www.instagram.com/bruh.bank.official/" target="_blank"><img class="logo" src="../logo_icons/instagram_logo.png" alt="ig_logo"></a>
 		<a href="https://pl-pl.facebook.com/" target="_blank"><img class="logo" src="../logo_icons/fb_logo.png" alt="fb_logo"></a>
 	</footer>
-</body>
-</html>
