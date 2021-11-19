@@ -406,8 +406,8 @@ input:hover[type=submit] {
 	width: 23%;
 	padding: 15px;
 	display: flex;
-  justify-content: space-around;
-  flex-direction: column;
+  	justify-content: space-around;
+  	flex-direction: column;
 }
 
 .container {
