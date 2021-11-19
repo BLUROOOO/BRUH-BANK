@@ -388,6 +388,10 @@ input:hover[type=submit] {
 .stats {
 	width: 23%;
 	padding: 15px;
+	margin-left: 15px;
+	display: flex;
+  	justify-content: space-around;
+  	flex-direction: column;
 }
 
 .options {
