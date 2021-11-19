@@ -1,3 +1,5 @@
+
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -258,7 +260,7 @@
 	function AccountNumber()
 	{
 		require 'Config//db_login_data.php';
-		session_start();
+		
 		$user_ID = $_SESSION['userID'];
 
 		$conn = mysqli_connect($hostname, $user, $passwd, $dbName);
