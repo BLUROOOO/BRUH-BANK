@@ -8,20 +8,15 @@
     HtmlGenerator::ReadHTML($filePath);
     session_start();
 
-    if(isset($_POST['first_name'], $_POST['second_name'], $_POST['surname'], $_POST['post_code'], $_POST['city'], $_POST['street'], $_POST['choose_card']))
-    {
-        $firstName = $_POST['first_name'];
-        $secondName = $_POST['second_name'];
-        $surname = $_POST['surname'];
-        $postCode = $_POST['post_code'];
-        $city = $_POST['city'];
-        $street = $_POST['street'];
-        $chooseCard = $_POST['choose_card'];
+    require 'Config//db_login_data.php';
 
-        require 'Config//db_login_data.php';
+    $cardNumber = $account_number = str_pad(rand(0, pow(10, 16)-1), 16, '0', STR_PAD_LEFT);
+    $userID = $_SESSION['userID'];
 
-		$conn = mysqli_connect($hostname, $user, $passwd, $dbName);
-    }
+    $conn = mysqli_connect($hostname, $user, $passwd, $dbName);
+    $sql1 = "UPDATE wallet SET credit_card='$cardNumber' WHERE wallet_ID='$userID';";
+    $conn->query($sql1);
+
     echo "</body>
     </html>";
 

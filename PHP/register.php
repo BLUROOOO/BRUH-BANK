@@ -34,7 +34,8 @@
 
 			require 'Config//db_login_data.php';
 
-			$conn = mysqli_connect($hostname, $user, $passwd, $dbName);
+			$conn = mysqli_connect($hostname, $user, $passwd) or die('nie działa');
+			$conn->select_db($dbName);
 
 			$sqlv1 = "SELECT id FROM `users` WHERE name='$firstName' AND second_name='$secondName' AND last_name='$lastName' and PESEL='$pesel' AND post_code='$postCode' AND city='$city'";
 			$sqlv2 = "SELECT user_ID FROM `accounts_data` WHERE login='$login'";
@@ -87,8 +88,8 @@
 			}
 			else
 			{
-				$sql1 = "INSERT INTO users(name,second_name,last_name,PESEL,post_code,city,mail) VALUES('$firstName', '$secondName', '$lastName', '$pesel', '$postCode', '$city', '$email')";
-				$conn->query($sql1);
+				$sql1 = "INSERT INTO users(name,second_name,last_name,pesel,post_code,city,mail) VALUES('$firstName', '$secondName', '$lastName', '$pesel', '$postCode', '$city', '$email')";
+				$conn->query($sql1) or die('bruh');
 
 				$sql = "SELECT id FROM users ORDER BY id DESC LIMIT 1";
 				$result = $conn->query($sql);
@@ -103,7 +104,7 @@
 				$sql3 = "INSERT INTO `account_type` (`user`, `type`) VALUES ('$user_ID', '$account_type')";
 				$conn->query($sql3);
 
-				$sql4 = "INSERT INTO `wallet` (`wallet_ID`, `balance`, `debt`, `number`) VALUES ('$user_ID', '0', '0', '$account_number');";
+				$sql4 = "INSERT INTO `wallet` (`wallet_ID`, `balance`, `debt`, `number`, `credit_card`, `funny3`) VALUES ('$user_ID', '0', '0', '$account_number', '0', '0');";
 				$conn->query($sql4);
 
 				$conn->close();
