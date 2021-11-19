@@ -8,5 +8,5 @@
     HtmlGenerator::ReadHTML($filePath);
     
     echo "</body>
-    </html>s";
+    </html>";
 ?>

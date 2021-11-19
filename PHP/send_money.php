@@ -9,7 +9,7 @@
 
     session_start();
 
-    $now = time(); // Checking the time now when home page starts.
+    $now = time();
 
     if ($now > $_SESSION['expire']) 
 	{
@@ -40,7 +40,12 @@
 			echo '</script>';
         }
 
+		require 'Config//db_login_data.php';
+
 		$conn = mysqli_connect($hostname, $user, $passwd, $dbName);
+        $sql1 = "SELECT wallet_ID FROM wallet WHERE number='$accountNumber'";
+        $result1 = $conn->query($sql1);
+        $bruhID = $result1->fetch_assoc()['wallet_ID'];
         
         }
         else

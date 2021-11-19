@@ -8,7 +8,7 @@
 	<link rel="icon" href="../logo_icons/bank_logo.png">
 </head>
 <body>
-<form>
+<form method="POST" action="post_order.php">
 	<header>
 		<a href="../PHP/main.php">BRUH. BANK S.A. | ZAMÓW KARTĘ</a>
 		<input type="submit" value="ZAMÓW">
@@ -28,17 +28,14 @@
 			<label for="surnname">NAZWISKO: </label><br>
 			<input type="text" name="surname" required><br>
 
-			<label for="kod_pocztowy">KOD POCZTOWY: </label><br>
-			<input type="number" name="kod_pocztowy" pattern="[0-9]{2}\-[0-9]{3}" required><br>
+			<label for="post_code">KOD POCZTOWY: </label><br>
+			<input type="number" name="post_code" pattern="[0-9]{2}\-[0-9]{3}" required><br>
 
 			<label for="city">MIASTO: </label><br>
 			<input type="text" name="city" required><br>
 
 			<label for="street">ULICA: </label><br>
 			<input type="text" name="street" required><br>
-
-			<label for="account_number">NUMER KONTA: </label><br>
-			<input type="number" name="account_number" required><br>
 
 			<label for="choose_card">WYBIERZ KARTĘ: </label><br>
 			<div class="custom-select">
@@ -187,5 +184,3 @@ document.addEventListener("click", closeAllSelect);
 		<a href="https://www.instagram.com/bruh.bank.official/" target="_blank"><img class="logo" src="../logo_icons/instagram_logo.png" alt="ig_logo"></a>
 		<a href="https://pl-pl.facebook.com/" target="_blank"><img class="logo" src="../logo_icons/fb_logo.png" alt="fb_logo"></a>
 	</footer>
-</body>
-</html>

@@ -14,7 +14,7 @@
 		if(isset($_POST['email'],$_POST['login'], $_POST['password'],$_POST['confirm_password'],$_POST['radio_account'], $_POST['first_name'], $_POST['second_name'], $_POST['surname'], $_POST['pesel'], $_POST['post_code'], $_POST['city'], $_POST['street']))
 		{
 
-			echo 'bruh3 ';
+			
 			$email = $_POST['email'];
 			$login = $_POST['login'];
 			$password = $_POST['password'];
@@ -103,7 +103,7 @@
 				$sql3 = "INSERT INTO `account_type` (`user`, `type`) VALUES ('$user_ID', '$account_type')";
 				$conn->query($sql3);
 
-				$sql4 = "INSERT INTO `wallet` (`wallet_ID`, `user`, `wallet`, `number`) VALUES ('$user_ID', '0', '0', '$account_number');";
+				$sql4 = "INSERT INTO `wallet` (`wallet_ID`, `balance`, `debt`, `number`) VALUES ('$user_ID', '0', '0', '$account_number');";
 				$conn->query($sql4);
 
 				$conn->close();

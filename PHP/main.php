@@ -72,11 +72,11 @@
 		$user_ID = $_SESSION['userID'];
 
 		$conn = mysqli_connect($hostname, $user, $passwd, $dbName);
-		$sql = "SELECT wallet FROM wallet WHERE wallet_ID='$user_ID'";
+		$sql = "SELECT balance FROM wallet WHERE wallet_ID='$user_ID'";
 		$result = $conn->query($sql);
 		
 		$row = $result->fetch_assoc();
-		echo $row['wallet']." ZŁ";
+		echo $row['balance']." ZŁ";
 	}
 
 	function Balanceusd()
@@ -87,11 +87,11 @@
 		$user_ID = $_SESSION['userID'];
 
 		$conn = mysqli_connect($hostname, $user, $passwd, $dbName);
-		$sql = "SELECT wallet FROM wallet WHERE wallet_ID='$user_ID'";
+		$sql = "SELECT balance FROM wallet WHERE wallet_ID='$user_ID'";
 		$result = $conn->query($sql);
 		
 		$row = $result->fetch_assoc();
-		echo number_format($row['wallet']/4.11, 2)." $";
+		echo number_format($row['balance']/4.11, 2)." $";
 	}
 
 	function Balanceeur()
@@ -102,11 +102,11 @@
 		$user_ID = $_SESSION['userID'];
 
 		$conn = mysqli_connect($hostname, $user, $passwd, $dbName);
-		$sql = "SELECT wallet FROM wallet WHERE wallet_ID='$user_ID'";
+		$sql = "SELECT balance FROM wallet WHERE wallet_ID='$user_ID'";
 		$result = $conn->query($sql);
 		
 		$row = $result->fetch_assoc();
-		echo number_format($row['wallet']/4.66, 2)." €";
+		echo number_format($row['balance']/4.66, 2)." €";
 	}
 
 	function AccountNumber()
