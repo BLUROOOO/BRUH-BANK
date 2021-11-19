@@ -14,9 +14,155 @@
 	</header>
 	<article id="article5">
 		<div id="stan_konta">
-			TWOJE WYDATKI
+			GIEŁDA
 			<hr class="hr">
-			
+			<div id="stock">
+			<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener" target="_blank"><span class="blue-text">Financial Markets</span></a> by TradingView</div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+  {
+  "colorTheme": "dark",
+  "dateRange": "12M",
+  "showChart": true,
+  "locale": "en",
+  "largeChartUrl": "",
+  "isTransparent": true,
+  "showSymbolLogo": false,
+  "showFloatingTooltip": false,
+  "width": "400",
+  "height": "500",
+  "plotLineColorGrowing": "rgba(101, 101, 101, 1)",
+  "plotLineColorFalling": "rgba(101, 101, 101, 1)",
+  "gridLineColor": "rgba(240, 243, 250, 0)",
+  "scaleFontColor": "rgba(101, 101, 101, 1)",
+  "belowLineFillColorGrowing": "rgba(182, 182, 182, 0.12)",
+  "belowLineFillColorFalling": "rgba(182, 182, 182, 0.12)",
+  "belowLineFillColorGrowingBottom": "rgba(203, 203, 203, 0)",
+  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+  "symbolActiveColor": "rgba(152, 152, 152, 0.12)",
+  "tabs": [
+    {
+      "title": "Indices",
+      "symbols": [
+        {
+          "s": "BINANCE:BTCUSDT",
+          "d": "BITCOIN / TETHERUS"
+        },
+        {
+          "s": "BINANCE:SHIBUSDT",
+          "d": "SHIB / TETHERUS"
+        },
+        {
+          "s": "BINANCE:DOGEUSDT",
+          "d": "DOGECOIN / TETHERUS"
+        },
+        {
+          "s": "NASDAQ:AAPL",
+          "d": "APPLE, INC."
+        },
+        {
+          "s": "NASDAQ:TSLA",
+          "d": "TESLA, INC."
+        },
+        {
+          "s": "NASDAQ:AMZN",
+          "d": "AMAZON.COM, INC."
+        }
+      ],
+      "originalTitle": "Indices"
+    },
+    {
+      "title": "Futures",
+      "symbols": [
+        {
+          "s": "CME_MINI:ES1!",
+          "d": "S&P 500"
+        },
+        {
+          "s": "CME:6E1!",
+          "d": "Euro"
+        },
+        {
+          "s": "COMEX:GC1!",
+          "d": "Gold"
+        },
+        {
+          "s": "NYMEX:CL1!",
+          "d": "Crude Oil"
+        },
+        {
+          "s": "NYMEX:NG1!",
+          "d": "Natural Gas"
+        },
+        {
+          "s": "CBOT:ZC1!",
+          "d": "Corn"
+        }
+      ],
+      "originalTitle": "Futures"
+    },
+    {
+      "title": "Bonds",
+      "symbols": [
+        {
+          "s": "CME:GE1!",
+          "d": "Eurodollar"
+        },
+        {
+          "s": "CBOT:ZB1!",
+          "d": "T-Bond"
+        },
+        {
+          "s": "CBOT:UB1!",
+          "d": "Ultra T-Bond"
+        },
+        {
+          "s": "EUREX:FGBL1!",
+          "d": "Euro Bund"
+        },
+        {
+          "s": "EUREX:FBTP1!",
+          "d": "Euro BTP"
+        },
+        {
+          "s": "EUREX:FGBM1!",
+          "d": "Euro BOBL"
+        }
+      ],
+      "originalTitle": "Bonds"
+    },
+    {
+      "title": "Forex",
+      "symbols": [
+        {
+          "s": "FX:EURUSD"
+        },
+        {
+          "s": "FX:GBPUSD"
+        },
+        {
+          "s": "FX:USDJPY"
+        },
+        {
+          "s": "FX:USDCHF"
+        },
+        {
+          "s": "FX:AUDUSD"
+        },
+        {
+          "s": "FX:USDCAD"
+        }
+      ],
+      "originalTitle": "Forex"
+    }
+  ]
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+			</div>
 		</div>
 		<div class="stats">
 			<div class="staty" style="word-wrap: break-word;">
