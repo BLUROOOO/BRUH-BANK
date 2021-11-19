@@ -17,29 +17,18 @@
 
     HtmlGenerator::ReadHTML($filePath);
 
+    session_start();
+
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         require 'Config//db_login_data.php';
 
-        $postCode = $_POST['post_code'];
-        $city = $_POST['city'];
-        $card = $_POST['choose_card'];
-        echo $card;
+        $cardNumber = $account_number = str_pad(rand(0, pow(10, 16)-1), 16, '0', STR_PAD_LEFT);
 
         $conn = mysqli_connect($hostname, $user, $passwd, $dbName);
-        $sql1 = "SELECT ID FROM users WHERE name='$name' and second_name='$secondName' and last_name='$surname' and post_code='$postCode' and city='$city'";
+        $sql1 = "UPDATE wallet SET credit_card='$cardNumber'";
         $result1 = $conn->query($sql1);
-        if($result1->num_rows == 0)
-        {
-            echo '<script type="text/javascript">';
-			echo 'alert("Wprowadź poprawne dane!")';
-			echo '</script>';
-			$result->free_result();
-        }
-        else
-        {
-
-        }
+        
 
     }
     
