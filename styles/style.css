@@ -565,3 +565,7 @@ input:hover[type=submit] {
 .select-items div:hover, .same-as-selected {
   background-color: #717171;
 }
+
+#stock {
+	margin-left: 10px;
+}
