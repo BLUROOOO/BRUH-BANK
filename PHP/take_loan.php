@@ -16,4 +16,17 @@
         session_destroy();
         header("Location: session_expire.php");
     }
+
+    if($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        $goal = $_POST['goal'];
+        $amount = $_POST['amount'];
+        $howLong = $_POST['how_long'];
+        $yourInstalment = $_POST['your_instalment'];
+
+        if(isset($goal,$amount,$howLong,$yourInstalment))
+        {
+            
+        }
+    }
 ?>

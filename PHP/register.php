@@ -11,7 +11,7 @@
 	{
 		
 		
-		if(isset($_POST['email'],$_POST['login'], $_POST['password'],$_POST['confirm_password'],$_POST['radio_account'], $_POST['first_name'], $_POST['second_name'], $_POST['surname'], $_POST['pesel'], $_POST['post_code'], $_POST['city'], $_POST['street']))
+		if(isset($_POST['email'],$_POST['login'], $_POST['password'],$_POST['confirm_password'],$_POST['radio_account'], $_POST['first_name'], $_POST['second_name'], $_POST['surname'], $_POST['pesel'], $_POST['post_code'], $_POST['city'], $_POST['street'], $_POST['adres']))
 		{
 
 			
@@ -25,8 +25,11 @@
 			$lastName = $_POST['surname'];
 			$pesel = $_POST['pesel'];
 			$postCode = $_POST['post_code'];
+			var_dump($postCode);
+			$postCode = str_replace("-", "", $postCode);
 			$city = $_POST['city'];
 			$street = $_POST['street'];
+			$adres = $_POST['adres'];
 			$user_ID = 0;
 			$account_number = str_pad(rand(0, pow(10, 18)-1), 18, '0', STR_PAD_LEFT).str_pad(rand(0, pow(10, 8)-1), 8, '0', STR_PAD_LEFT);
 
