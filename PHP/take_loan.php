@@ -23,10 +23,48 @@
         $amount = $_POST['amount'];
         $howLong = $_POST['how_long'];
         $yourInstalment = $_POST['your_instalment'];
+        $userID = $_SESSION['userID'];
+        $debt = 0;
 
         if(isset($goal,$amount,$howLong,$yourInstalment))
         {
+            require 'Config//db_login_data.php';
+
+		    $conn = mysqli_connect($hostname, $user, $passwd, $dbName);
+            $sql1 = "SELECT debt FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
+            $sql2 = "UPDATE wallet SET debt='$amount'";
+
+            $conn->begin_transaction();
+            try
+            {
+                $conn->autocommit(false);
+                $result1 = $conn->query($sql1);
+                $debt = $result1->fetch_assoc()['debt'];
+                if($debt != 0)
+                {
+                    echo '<script type="text/javascript">';
+			        echo 'alert("Już wziąłeś pożyczkę!")';
+			        echo '</script>';
+			        $result1->free_result();
+                    throw new Exception();
+                }
+
+                
+                $conn->query($sql2);
+                $conn->commit();
+                header("Location: post_take_loan.php");
+            }
+            catch (Exception $e) 
+            {
+                $conn->rollback();
+            }
             
+
+
+
         }
     }
+
+    echo "</body>
+    </html>";
 ?>
