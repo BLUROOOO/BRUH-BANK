@@ -33,6 +33,7 @@
 		    $conn = mysqli_connect($hostname, $user, $passwd, $dbName);
             $sql1 = "SELECT debt FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
             $sql2 = "UPDATE wallet SET debt='$amount'";
+            $sql3 = "UPDATE wallet SET balance=balance+$amount";
 
             $conn->begin_transaction();
             try
@@ -51,6 +52,7 @@
 
                 
                 $conn->query($sql2);
+                $conn->query($sql3);
                 $conn->commit();
                 header("Location: post_take_loan.php");
             }
