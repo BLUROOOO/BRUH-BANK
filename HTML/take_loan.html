@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="../styles/style.css">
 	<link rel="icon" href="../logo_icons/bank_logo.png">
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <body>
 	<form method="POST" action="">
 	<header>
@@ -15,20 +16,31 @@
 	</header>
 	<article id="article6">
 		<div id="send_money">
-			WEŹ KREDYT | DANE DO KREDYTU
+			WEŹ KREDYT | DANE DO KREDYTU | RRSO 9,02%
 			<hr class="hr">
 				<label for="goal">CEL KREDYTU: </label><br>
 				<input type="text" name="goal" required>
 
 				<label for="amount">KWOTA KREDYTU [PLN]: </label><br>
-				<input type="number" name="amount" required>
+				<input type="number" name="amount" id="1" required>
 
                 <label for="how_long">DŁUGOŚĆ SPŁATY KREDYTU [W MIESIĄCACH]: </label><br>
-				<input type="number" name="how_long" required>
+				<input type="number" name="how_long" id="2" required>
 
                 <label for="your_instalment">TWOJA MIESIĘCZNA RATA WYNOSI: </label><br>
-                <input type="text" name="your_instalment" value="" readonly>
+                <span id="result"></span>
 		</div>
+		<script type="text/javascript">
+			onload = function () {
+  				var firstInput = document.getElementById('1'),
+      			secondInput = document.getElementById('2'),
+      			resultPlaceholder = document.getElementById('result');
+  				firstInput.oninput = function() {
+    			resultPlaceholder.innerHTML = parseInt(firstInput.value)/parseInt(secondInput.value);
+  			};
+  				secondInput.oninput = firstInput.oninput;
+			};
+		</script>
 	</form>
 	</article>
 	<div id="news">
@@ -45,3 +57,5 @@
 		<a href="https://www.instagram.com/bruh.bank.official/" target="_blank"><img class="logo" src="../logo_icons/instagram_logo.png" alt="ig_logo"></a>
 		<a href="https://pl-pl.facebook.com/" target="_blank"><img class="logo" src="../logo_icons/fb_logo.png" alt="fb_logo"></a>
 	</footer>
+</body>
+</html>
