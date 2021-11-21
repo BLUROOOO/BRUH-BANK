@@ -317,6 +317,22 @@ input:hover[type=submit] {
 	background-color: #717171;
 }
 
+span#result {
+	border-radius: 12px;
+	border-width: 4px;
+	border-style: solid;
+	border-color: #545454;
+	background-color: #1E1E1E;
+	font-size: 35px;
+	font-family: impact;
+	color: #545454;
+	padding: 5px;
+	width: 96.5%;
+	height: 40px;
+	display: block;
+	overflow: hidden;
+}
+
 #login {
 	border-color: #545454;
 	background-color: #1E1E1E;
