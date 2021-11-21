@@ -32,11 +32,11 @@
 
 		    $conn = mysqli_connect($hostname, $user, $passwd, $dbName);
             $sql1 = "SELECT debt FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
-            $sql2 = "UPDATE wallet SET debt='$amount'";
-            $sql3 = "UPDATE wallet SET balance=balance+$amount";
-            $sql4 = "UPDATE wallet SET Start_dept='$amount'";
-            $sql5 = "UPDATE wallet SET Length='$howLong'";
-            $sql6 = "UPDATE wallet SET Rate='$yourInstalment'";
+            $sql2 = "UPDATE wallet SET debt='$amount' WHERE wallet_ID='$userID'";
+            $sql3 = "UPDATE wallet SET balance=balance+$amount WHERE wallet_ID='$userID'";
+            $sql4 = "UPDATE wallet SET Start_dept='$amount' WHERE wallet_ID='$userID'";
+            $sql5 = "UPDATE wallet SET Length='$howLong' WHERE wallet_ID='$userID'";
+            $sql6 = "UPDATE wallet SET Rate='$yourInstalment' WHERE wallet_ID='$userID'";
 
             $conn->begin_transaction();
             try
