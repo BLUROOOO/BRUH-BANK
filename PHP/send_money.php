@@ -24,14 +24,14 @@
         echo "bruh123";
         if(isset($_POST['first_name'], $_POST['second_name'], $_POST['surname'], $_POST['title'], $_POST['account_number'], $_POST['money']))
 	    {
-		require 'Config//db_login_data.php';
+            require 'Config//db_login_data.php';
 
-        $firstName = $_POST['first_name'];
-		$secondName = $_POST['second_name'];
-		$lastName = $_POST['surname'];
-        $title = $_POST['title'];
-        $account_number = $_POST['account_number'];
-        $money = $_POST['money'];
+            $firstName = $_POST['first_name'];
+            $secondName = $_POST['second_name'];
+            $lastName = $_POST['surname'];
+            $title = $_POST['title'];
+            $account_number = $_POST['account_number'];
+            $money = $_POST['money'];
 
         if(strlen($account_number) != 26)
         {
@@ -40,12 +40,33 @@
 			echo '</script>';
         }
 
-		require 'Config//db_login_data.php';
+            $conn = mysqli_connect($hostname, $user, $passwd, $dbName);
+            $sql1 = "SELECT wallet_ID FROM wallet WHERE number='$accountNumber'";
+            $result1 = $conn->query($sql1);
+            $receiverID = $result1->fetch_assoc()['wallet_ID'];
+            $userID = $_SESSION['userID'];
+            echo "UserID: ".$userID;
+            echo "ReceiverID: ".$receiverID;
 
-		$conn = mysqli_connect($hostname, $user, $passwd, $dbName);
-        $sql1 = "SELECT wallet_ID FROM wallet WHERE number='$accountNumber'";
-        $result1 = $conn->query($sql1);
-        $bruhID = $result1->fetch_assoc()['wallet_ID'];
+            $sql2 = "UPDATE wallet SET balance=balance+$money WHERE wallet_ID='$receiverID' FOR UPDATE";
+            $sql3 = "UPDATE wallet SET balance=balance-$money WHERE wallet_ID='$userID' FOR UPDATE";
+
+            $conn->begin_transaction();
+            try
+            {
+                $conn->autocommit(false);
+                $conn->query($sql2);
+                $conn->query($sql3);
+                $conn->commit();
+               // header("Location: post_send_money.php");
+            }
+            catch(Exception $e)
+            {
+                $conn->rollback();
+            }
+
+            
+            
         
         }
         else
