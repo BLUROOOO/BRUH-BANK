@@ -347,9 +347,6 @@ span#result {
 	height: 45%;
 	position: absolute;
 	left: 34%;
-	display: flex;
-  	justify-content: space-around;
-  	flex-direction: column;
 }
 
 #post_register {
@@ -396,7 +393,7 @@ span#result {
 	background-color: #1E1E1E;
 	color: #545454;
 	border-radius: 12px;
-	font-size: 29.5px;
+	font-size: 29px;
 	border-width: 4px;
 	border-style: solid;
 	padding: 15px;
