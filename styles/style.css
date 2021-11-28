@@ -347,9 +347,6 @@ span#result {
 	height: 45%;
 	position: absolute;
 	left: 34%;
-	display: flex;
-  	justify-content: space-around;
-  	flex-direction: column;
 }
 
 #post_register {
