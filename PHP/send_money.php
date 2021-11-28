@@ -17,11 +17,9 @@
         header("Location: session_expire.php");
     }
 
-    echo "bruh2";
 
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        echo "bruh123";
         if(isset($_POST['first_name'], $_POST['second_name'], $_POST['surname'], $_POST['title'], $_POST['account_number'], $_POST['money']))
 	    {
             require 'Config//db_login_data.php';
@@ -41,15 +39,17 @@
         }
 
             $conn = mysqli_connect($hostname, $user, $passwd, $dbName);
-            $sql1 = "SELECT wallet_ID FROM wallet WHERE number='$accountNumber'";
+            $sql1 = "SELECT wallet_ID FROM wallet WHERE number='$account_number'";
             $result1 = $conn->query($sql1);
             $receiverID = $result1->fetch_assoc()['wallet_ID'];
             $userID = $_SESSION['userID'];
-            echo "UserID: ".$userID;
-            echo "ReceiverID: ".$receiverID;
+            echo "<br>UserID: ".$userID;
+            echo "<br>ReceiverID: ".$receiverID;
 
-            $sql2 = "UPDATE wallet SET balance=balance+$money WHERE wallet_ID='$receiverID' FOR UPDATE";
-            $sql3 = "UPDATE wallet SET balance=balance-$money WHERE wallet_ID='$userID' FOR UPDATE";
+            $sql2 = "UPDATE wallet SET balance=balance+$money WHERE wallet_ID='$receiverID'";
+            $sql3 = "UPDATE wallet SET balance=balance-$money WHERE wallet_ID='$userID'";
+            $sql4 = "INSERT INTO history(value,pay_out, user_ID) VALUES($money,1,$userID)";
+            $sql5 = "INSERT INTO history(value,pay_in, user_ID) VALUES($money,1,$receiverID)";
 
             $conn->begin_transaction();
             try
@@ -57,8 +57,11 @@
                 $conn->autocommit(false);
                 $conn->query($sql2);
                 $conn->query($sql3);
+                $conn->query($sql4);
+                $conn->query($sql5);
                 $conn->commit();
-               // header("Location: post_send_money.php");
+                echo "<br>BRUH";
+                header("Location: post_send_money.php");
             }
             catch(Exception $e)
             {
