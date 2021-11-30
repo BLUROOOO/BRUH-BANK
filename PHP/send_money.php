@@ -48,8 +48,8 @@
 
             $sql2 = "UPDATE wallet SET balance=balance+$money WHERE wallet_ID='$receiverID'";
             $sql3 = "UPDATE wallet SET balance=balance-$money WHERE wallet_ID='$userID'";
-            $sql4 = "INSERT INTO history(value,pay_out, user_ID) VALUES($money,1,$userID)";
-            $sql5 = "INSERT INTO history(value,pay_in, user_ID) VALUES($money,1,$receiverID)";
+            $sql4 = "INSERT INTO history(value,pay_out, user_ID, title) VALUES($money,1,$userID, $title)";
+            $sql5 = "INSERT INTO history(value,pay_in, user_ID, title) VALUES($money,1,$receiverID, $title)";
 
             $conn->begin_transaction();
             try
@@ -61,7 +61,7 @@
                 $conn->query($sql5);
                 $conn->commit();
                 echo "<br>BRUH";
-                header("Location: post_send_money.php");
+                //header("Location: post_send_money.php");
             }
             catch(Exception $e)
             {

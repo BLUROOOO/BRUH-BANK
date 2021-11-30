@@ -34,17 +34,23 @@
         header("Location: main.php");
     }
  
-            $sql2 = "SELECT Start_dept FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
-            $sql3 = "SELECT Rate FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
+            $sql2 = "SELECT start_dept FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
+            $sql3 = "SELECT instalment FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
+            $sql4 = "SELECT debt_date FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
+            $sql5 = "SELECT length FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
 
             $conn->begin_transaction();
             try
             {
                 $conn->autocommit(false);
-                $startDebt = $conn->query($sql2)->fetch_assoc()['Start_dept'];
-                $instalment = $conn->query($sql3)->fetch_assoc()['Rate'];
+                $startDebt = $conn->query($sql2)->fetch_assoc()['start_dept'];
+                $instalment = $conn->query($sql3)->fetch_assoc()['instalment'];
+                $debt_date = strtotime($conn->query($sql4)->fetch_assoc()['debt_date']);
+                $length = $conn->query($sql5)->fetch_assoc()['length']*2592000;
+                echo $debt_date."<br>";
+                echo strtotime(date("Y-m-d")) * $instalment;
+                $GLOBALS['expire'] = strtotime(date("Y-m-d")) * $instalment - $debt_date;
                 
-
 
                 $conn->commit();
 
@@ -53,6 +59,7 @@
             {
                 $conn->rollback();
             }
+    
 
 
 ?>
@@ -83,7 +90,7 @@
 				<input type="text" name="left" value="<?php echo $debt ?>" readonly>
 
                 <label for="instalment">POZOSTAŁO MIESIĘCY: </label><br>
-				<input type="text" name="instalment" value="" readonly><br>
+				<input type="text" name="instalment" value="<?php echo $GLOBALS['expire']; ?>" readonly><br>
 
 				<label for="pay_instalment">WIELKOŚĆ RATY: </label><br>
 				<input type="number" name="pay_instalment" value="<?php echo $instalment ?>" readonly>

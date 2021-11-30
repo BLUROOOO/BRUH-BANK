@@ -36,7 +36,7 @@
             $sql3 = "UPDATE wallet SET balance=balance+$amount WHERE wallet_ID='$userID'";
             $sql4 = "UPDATE wallet SET Start_dept='$amount' WHERE wallet_ID='$userID'";
             $sql5 = "UPDATE wallet SET Length='$howLong' WHERE wallet_ID='$userID'";
-            $sql6 = "UPDATE wallet SET Rate='$yourInstalment' WHERE wallet_ID='$userID'";
+            $sql6 = "UPDATE wallet SET instalment='$yourInstalment' WHERE wallet_ID='$userID'";
 
             $conn->begin_transaction();
             try
