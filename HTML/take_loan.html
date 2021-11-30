@@ -28,7 +28,7 @@
 				<input type="number" name="how_long" id="2" required>
 
                 <label for="your_instalment">TWOJA MIESIĘCZNA RATA WYNOSI: </label><br>
-                <input type="number" id="result" step="0.01" name="your_instalment">
+                <input type="number" id="result" step="0.01" name="your_instalment" readonly>
 		</div>
 		<script type="text/javascript">
 			onload = function () {
@@ -37,8 +37,8 @@
       			resultPlaceholder = document.getElementById('result');
   				firstInput.oninput = function() 
 				{
-    				number = parseInt(firstInput.value)/parseInt(secondInput.value);
-					resultPlaceholder.value = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(number)
+    				var number = parseInt(firstInput.value)/parseInt(secondInput.value);
+					resultPlaceholder.value = number.toFixed(2);
   				};
   				secondInput.oninput = firstInput.oninput;
 			};

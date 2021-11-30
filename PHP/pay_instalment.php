@@ -45,11 +45,14 @@
                 $conn->autocommit(false);
                 $startDebt = $conn->query($sql2)->fetch_assoc()['start_dept'];
                 $instalment = $conn->query($sql3)->fetch_assoc()['instalment'];
-                $debt_date = strtotime($conn->query($sql4)->fetch_assoc()['debt_date']);
-                $length = $conn->query($sql5)->fetch_assoc()['length']*2592000;
-                echo $debt_date."<br>";
-                echo strtotime(date("Y-m-d")) * $instalment;
-                $GLOBALS['expire'] = strtotime(date("Y-m-d")) * $instalment - $debt_date;
+                $debt_date = new DateTime($conn->query($sql4)->fetch_assoc()['debt_date']);
+                $currentDate = new DateTime('now');
+                $length = $conn->query($sql5)->fetch_assoc()['length'];
+                $debt_date->modify("+$length month");
+                //$debt_date = $debt_date->format('Y-m-d');
+                //echo $debt_date."<br>";
+                
+                $GLOBALS['expire'] = $debt_date->diff($currentDate)->m;
                 
 
                 $conn->commit();
