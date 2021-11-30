@@ -68,9 +68,6 @@
                 $conn->rollback();
             }
 
-            
-            
-        
         }
         else
         {

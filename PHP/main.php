@@ -190,6 +190,7 @@
 		<div id="history">
 			HISTORIA TRANSAKCJI
 			<hr class="hr">
+      <?php history() ?>
 		</div>
 	</article>
 	<div id="news">
@@ -278,6 +279,21 @@
 		$row = $result->fetch_assoc();
 		echo $row['number'];
 	}
+
+  function history()
+  {
+    require 'Config//db_login_data.php';
+
+    $user_ID = $_SESSION['userID'];
+
+    $conn = mysqli_connect($hostname, $user, $passwd, $dbName);
+		$sql1 = "SELECT value, transaction_date, pay_in, pay_out FROM history WHERE user_ID='$user_ID'";
+		$result1 = $conn->query($sql1);
+    while($row1 = $result1->fetch_assoc())
+    {
+      echo $row1['value']."<br>";
+    }
+  }
 
 	
 ?>
