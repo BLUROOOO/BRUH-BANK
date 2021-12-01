@@ -601,8 +601,16 @@ span#result {
 	border: 2px solid #545454;
 }
 
-.kwota, .tytul {
+.kwota {
 	font-size: 20px;
 	color: #545454;
 	font-family: impact;
+	float: left;
+}
+
+.tytul {
+	font-size: 20px;
+	color: #545454;
+	font-family: impact;
+	float: right;
 }
