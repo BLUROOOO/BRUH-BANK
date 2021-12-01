@@ -592,17 +592,17 @@ span#result {
 }
 
 .data {
-	font-size: 25px;
+	font-size: 35px;
 	color: #545454;
 	font-family: impact;
 }
 
 .hr2 {
-	border: 2px solid #545454;
+	border: 3px solid #545454;
 }
 
 .kwota {
-	font-size: 35px;
+	font-size: 25px;
 	color: #545454;
 	font-family: impact;
 	float: left;
@@ -613,4 +613,12 @@ span#result {
 	color: #545454;
 	font-family: impact;
 	float: right;
+}
+
+.red {
+	color:  #e74c3c;
+}
+
+.green {
+	color:  #27ae60;
 }
