@@ -51,8 +51,10 @@
                 $debt_date->modify("+$length month");
                 //$debt_date = $debt_date->format('Y-m-d');
                 //echo $debt_date."<br>";
+                //echo $currentDate->format('Y-m-d');
                 
-                $GLOBALS['expire'] = $debt_date->diff($currentDate)->m;
+               
+                $GLOBALS['expire'] = $currentDate->diff($debt_date)->y*12+$currentDate->diff($debt_date)->m;
                 
 
                 $conn->commit();
