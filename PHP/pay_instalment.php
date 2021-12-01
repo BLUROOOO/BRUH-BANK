@@ -1,5 +1,5 @@
 <?php
-
+    error_reporting(0);
     session_start();
     
     $now = time();
@@ -21,9 +21,7 @@
         $debt = $result1->fetch_assoc()['debt'];
         if($debt == 0)
         {
-            echo '<script type="text/javascript">';
-			echo 'alert("Nie masz długów!")';
-			echo '</script>';
+            
 			$result1->free_result();
             throw new Exception();
         }
@@ -31,7 +29,7 @@
     catch(Exception $e)
     {
         $conn->rollback();
-        header("Location: main.php");
+        header("Location: no_debt.php");
     }
  
             $sql2 = "SELECT start_dept FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";

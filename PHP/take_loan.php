@@ -1,5 +1,5 @@
 <?php
-    
+    error_reporting(0); 
     require 'Config//Import_HTML.php';
     $fileName = basename($_SERVER['PHP_SELF']);
     $fileName = str_replace(".php", "", $fileName);

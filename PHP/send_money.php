@@ -1,5 +1,6 @@
 <?php
 
+    error_reporting(0);
     require 'Config//Import_HTML.php';
     $fileName = basename($_SERVER['PHP_SELF']);
     $fileName = str_replace(".php", "", $fileName);
@@ -43,8 +44,8 @@
             $result1 = $conn->query($sql1);
             $receiverID = $result1->fetch_assoc()['wallet_ID'];
             $userID = $_SESSION['userID'];
-            echo "<br>UserID: ".$userID;
-            echo "<br>ReceiverID: ".$receiverID;
+            //echo "<br>UserID: ".$userID;
+            //echo "<br>ReceiverID: ".$receiverID;
 
             $sql2 = "UPDATE wallet SET balance=balance+$money WHERE wallet_ID='$receiverID'";
             $sql3 = "UPDATE wallet SET balance=balance-$money WHERE wallet_ID='$userID'";
@@ -60,8 +61,8 @@
                 $conn->query($sql4);
                 $conn->query($sql5);
                 $conn->commit();
-                echo "<br>BRUH";
-                //header("Location: post_send_money.php");
+                //echo "<br>BRUH";
+                header("Location: post_send_money.php");
             }
             catch(Exception $e)
             {

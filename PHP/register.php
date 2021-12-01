@@ -1,5 +1,5 @@
 <?php
-
+	error_reporting(0);
 	require 'Config//Import_HTML.php';
 	$fileName = basename($_SERVER['PHP_SELF']);
 	$fileName = str_replace(".php", "", $fileName);
@@ -46,12 +46,12 @@
 			$resultv1 = $conn->query($sqlv1);
 			$resultv2 = $conn->query($sqlv2);
 			$resultv3 = $conn->query($sqlv3);
-			echo "<br> resultv1: ".$resultv1->num_rows;
-			echo "<br> resultv2: ".$resultv2->num_rows;
-			echo "<br> resultv3: ".$resultv3->num_rows;
+			//echo "<br> resultv1: ".$resultv1->num_rows;
+			//echo "<br> resultv2: ".$resultv2->num_rows;
+			//echo "<br> resultv3: ".$resultv3->num_rows;
 
-			echo "<br> email: $email";
-			echo "<br> Account: $account_type";
+			//echo "<br> email: $email";
+			//echo "<br> Account: $account_type";
 
 			if($resultv1->num_rows != 0)
 			{
