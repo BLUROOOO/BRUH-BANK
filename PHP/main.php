@@ -294,12 +294,13 @@
     {
       if($row1['transaction_date'] != $previousDate)
       {
-        echo $row1['transaction_date']."<br>";
+        echo "<span class='data'>".$row1['transaction_date']."</span><br>";
+        echo "<hr class='hr2'>";
         $previousDate = $row1['transaction_date'];
       }
       
       
-      echo $row1['value']."      ".$row1['title']."<br>";
+      echo "<span class='kwota'>".$row1['value']."</span><span class='tytul'>".$row1['title']."</span><br>";
     }
   }
 
