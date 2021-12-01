@@ -233,7 +233,7 @@
 		$result = $conn->query($sql);
 		
 		$row = $result->fetch_assoc();
-		echo $row['balance']." ZŁ";
+		echo number_format($row['balance'], 2)." ZŁ";
 	}
 
 	function Balanceusd()
