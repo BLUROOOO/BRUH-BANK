@@ -287,7 +287,7 @@
     $user_ID = $_SESSION['userID'];
 
     $conn = mysqli_connect($hostname, $user, $passwd, $dbName);
-		$sql1 = "SELECT value, transaction_date, pay_in, pay_out FROM history WHERE user_ID='$user_ID' ORDER BY transaction_ID DESC LIMIT 10";
+		$sql1 = "SELECT value, transaction_date, pay_in, pay_out, title FROM history WHERE user_ID='$user_ID' ORDER BY transaction_ID DESC LIMIT 10";
 		$result1 = $conn->query($sql1);
     $previousDate = null;
     while($row1 = $result1->fetch_assoc())
@@ -299,7 +299,7 @@
       }
       
       
-      echo $row1['value']."<br>";
+      echo $row1['value']."      ".$row1['title']."<br>";
     }
   }
 
