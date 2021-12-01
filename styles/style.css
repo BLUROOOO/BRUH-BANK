@@ -592,7 +592,7 @@ span#result {
 }
 
 .data {
-	font-size: 16px;
+	font-size: 25px;
 	color: #545454;
 	font-family: impact;
 }
@@ -602,14 +602,14 @@ span#result {
 }
 
 .kwota {
-	font-size: 20px;
+	font-size: 35px;
 	color: #545454;
 	font-family: impact;
 	float: left;
 }
 
 .tytul {
-	font-size: 20px;
+	font-size: 35px;
 	color: #545454;
 	font-family: impact;
 	float: right;
