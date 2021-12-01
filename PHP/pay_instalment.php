@@ -121,8 +121,8 @@
 
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
-        $sql4 = "UPDATE wallet SET balance=balance-$instalment";
-        $sql5 = "UPDATE wallet SET debt=debt-$instalment";
+        $sql4 = "UPDATE wallet SET balance=balance-$instalment WHERE wallet_ID='$userID'";
+        $sql5 = "UPDATE wallet SET debt=debt-$instalment WHERE wallet_ID='$userID'";
         $conn->begin_transaction();
         $conn->autocommit(false);
         try
