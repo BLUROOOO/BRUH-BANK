@@ -298,10 +298,20 @@
         echo "<hr class='hr2'>";
         $previousDate = $row1['transaction_date'];
       }
+
+      if($row1['pay_in'] == 1)
+      {
+        echo "<span class='kwota green'>".$row1['value']."</span><span class='tytul'>".$row1['title']."</span><br>";
+      }
+      else if($row1['pay_out'] == 1)
+      {
+        echo "<span class='kwota red'>".$row1['value']."</span><span class='tytul'>".$row1['title']."</span><br>";
+      }
       
       
-      echo "<span class='kwota'>".$row1['value']."</span><span class='tytul'>".$row1['title']."</span><br>";
+      
     }
+    
   }
 
 	
