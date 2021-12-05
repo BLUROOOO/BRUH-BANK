@@ -7,5 +7,5 @@
 	$hostname = "localhost";
 	$user = "root";
 	$passwd = "";
-	$dbName = "bbeu924kp2nhuacdbohv";
+	$dbName = "bank";
 ?>

@@ -51,10 +51,29 @@
             $sql3 = "UPDATE wallet SET balance=balance-$money WHERE wallet_ID='$userID'";
             $sql4 = "INSERT INTO history(value,pay_out, user_ID, title) VALUES($money,1,$userID, '$title')";
             $sql5 = "INSERT INTO history(value,pay_in, user_ID, title) VALUES($money,1,$receiverID, '$title')";
+            $sql6 = "SELECT balance FROM wallet WHERE wallet_ID='$userID'";
+            $result6 = $conn->query($sql6)->fetch_assoc()['balance'];
+           
+           
+                
 
             $conn->begin_transaction();
             try
             {
+                if($money < 0)
+                {
+                    echo '<script type="text/javascript">';
+			        echo 'alert("7. Nie kradnij!")';
+			        echo '</script>';
+                    throw new Exception('e');
+                 }
+                else if($money > $result6)
+                {
+                    echo '<script type="text/javascript">';
+                    echo 'alert("Masz niewystarczające środki na koncie!")';
+                    echo '</script>'; 
+                    throw new Exception('e');
+                }
                 $conn->autocommit(false);
                 $conn->query($sql2);
                 $conn->query($sql3);

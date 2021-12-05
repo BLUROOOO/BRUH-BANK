@@ -102,7 +102,7 @@
 	</article>
 	<div id="news">
 	<marquee scrolldelay="70">
-		Nowość! Pożyczka Stabilna (RRSO 9,02%) | Decydujesz. Zlecasz. Kontrolujesz. Nieograniczony dostęp do konta w BRUH. BANK | Nawet do 150 zł premii dla studentów od BRUH. BANK | Dodatkowe pieniądze na Twoim koncie. Nie korzystasz? Nie płacisz!
+		Nowość! Pożyczka Stabilna (RRSO 0,00%) | Decydujesz. Zlecasz. Kontrolujesz. Nieograniczony dostęp do konta w BRUH. BANK | Nawet do 150 zł premii dla studentów od BRUH. BANK | Dodatkowe pieniądze na Twoim koncie. Nie korzystasz? Nie płacisz!
 	</marquee>
 	</div>	
 	<footer>
