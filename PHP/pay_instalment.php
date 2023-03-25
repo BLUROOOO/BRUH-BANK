@@ -32,7 +32,7 @@
         header("Location: no_debt.php");
     }
  
-            $sql2 = "SELECT start_dept FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
+            $sql2 = "SELECT Start_dept FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
             $sql3 = "SELECT instalment FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
             $sql4 = "SELECT debt_date FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
             $sql5 = "SELECT length FROM wallet WHERE wallet_ID='$userID' FOR UPDATE";
@@ -79,7 +79,7 @@
 <body>
 	<form method="POST" action="">
 	<header>
-		<a href="../PHP/main.php">BRUH. BANK S.A. | SPŁAĆ RATĘ</a>
+        <a href="../PHP/main.php">BRUH. BANK S.A. | SPŁAĆ RATĘ</a>
 		<input type="submit" value="SPŁAĆ">
 	</header>
 	<article id="article6">
